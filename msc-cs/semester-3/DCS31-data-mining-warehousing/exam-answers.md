@@ -10,29 +10,29 @@
 | Module | Syllabus topic | Where |
 |---|---|---|
 | 1 | Introduction, kinds of data and patterns | **Q18**, Notes M1 §1–3 |
-| 1 | Technologies used | **Q1** |
+| 1 | Technologies used | **Q1**, Notes M1 §4 |
 | 1 | Applications, major issues | Notes M1 §5–6, **Q5** |
 | 1 | Data objects and attribute types | Notes M1 §7 |
 | 1 | Basic statistical description | Notes M1 §8 |
-| 1 | Data visualization | **Q2** |
+| 1 | Data visualization | **Q2**, Notes M1 §9 |
 | 1 | Similarity and dissimilarity | **Q3**, Notes M1 §10 |
 | 1 | Preprocessing: cleaning, integration, reduction, transformation, discretization | **Q4**, **Q17**, Notes M1 §11 |
 | 2 | Data warehousing basics, architecture | **Q7**, Notes M2 §1–2 |
 | 2 | Data cube, OLAP, schemas | **Q6**, Notes M2 §3–4 |
-| 2 | Warehouse design and usage | **Q19** |
-| 2 | Warehouse implementation, data cube technology, materialization | **Q8**, **Q20** |
+| 2 | Warehouse design and usage | **Q19**, Notes M2 §5 |
+| 2 | Warehouse implementation, data cube technology, materialization | **Q8**, **Q20**, Notes M2 §6 |
 | 2 | Classification, decision tree induction | **Q9**, Notes M2 §7–8 |
-| 2 | Bayes classification | **Q16** |
-| 2 | Rule-based classification | **Q10** |
-| 2 | Classification by backpropagation | **Q11** |
-| 3 | Cluster analysis, requirements, methods | **Q12** |
+| 2 | Bayes classification | **Q16**, Notes M2 §9 |
+| 2 | Rule-based classification | **Q10**, Notes M2 §10 |
+| 2 | Classification by backpropagation | **Q11**, Notes M2 §11 |
+| 3 | Cluster analysis, requirements, methods | **Q12**, Notes M3 §1 |
 | 3 | Partitioning methods (k-means, k-medoids) | **Q13**, Notes M3 §2 |
-| 3 | Hierarchical methods, BIRCH, CHAMELEON | **Q21** |
+| 3 | Hierarchical methods, BIRCH, CHAMELEON | **Q21**, Notes M3 §3 |
 | 3 | Outliers and outlier detection | **Q14**, Notes M3 §4–5 |
 | 3 | Web, text, spatial mining | Notes M3 §6 |
-| 3 | Temporal mining | **Q22** |
-| 3 | Applications, software | **Q15** |
-| 3 | Data mining and society, trends | **Q23** |
+| 3 | Temporal mining | **Q22**, Notes M3 §6 |
+| 3 | Applications, software | **Q15**, Notes M3 §7, Notes M3 §10 |
+| 3 | Data mining and society, trends | **Q23**, Notes M3 §8–9 |
 
 ---
 

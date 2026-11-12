@@ -142,6 +142,15 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
 .paper .marks { text-align: right; font-weight: 600; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
 .paper li a { color: inherit; }
 
+.syl { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.syl h2 { font-family: var(--font-display); font-size: 1rem; margin: 0; color: var(--accent); }
+.syl p { margin: 0; font-size: 0.9rem; color: var(--muted); max-width: 72ch; }
+.steps { margin: 0; padding-left: 1.3em; font-size: 0.85rem; display: flex; flex-direction: column; gap: 2px; }
+#topics { margin-top: 12px; }
+.note { color: var(--muted); font-size: 0.85rem; }
+.shorts { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.shorts dt { font-weight: 600; margin-top: 8px; }
+.shorts dd { margin: 0; max-width: 68ch; }
 .empty { color: var(--muted); padding: 24px; text-align: center; background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
 .section-title { font-family: var(--font-display); font-size: 1.05rem; margin: 6px 0 0; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
@@ -156,8 +165,9 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
       </label>
     </div>
     <nav class="views" aria-label="Views">
-      <a href="#learn" data-view="learn">Long answers</a>
-      <a href="#flashcards" data-view="flashcards">Part A flashcards</a>
+      <a href="#understand" data-view="understand">1 · Understand</a>
+      <a href="#learn" data-view="learn">2 · Essays (8 marks)</a>
+      <a href="#flashcards" data-view="flashcards">3 · Short answers (3 marks)</a>
       <a href="#formulas" data-view="formulas">Formulas</a>
       <a href="#mock" data-view="mock">Mock exam</a>
     </nav>
@@ -179,6 +189,12 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
   const SUBJECTS = [
     {
       code: "DCS31", name: "Data Mining & Warehousing", file: "dcs31.md",
+      notes: { 1: "dcs31-m1.md", 2: "dcs31-m2.md", 3: "dcs31-m3.md" },
+      syllabus: {
+        1: "Introduction to Data Mining. Different kinds of data and patterns that are mined. Technologies used. Applications, Major Issues. Data Objects and Attribute Types, Basic Statistical Description of Data – Data visualization, Measuring Data Similarity and Dissimilarity. Data Pre-processing, Data cleaning, Data Integration, Data Reduction, Data Transformation and Data Discretization.",
+        2: "Basic concepts of Data Warehousing. Data warehousing modeling: Data cube and OLAP – Data warehouse design and usage. Data warehouse Implementation. Data cube Technology. Classification, Decision Tree Induction, Bayes classification, Rule based classification, classification by back propagation.",
+        3: "Cluster Analysis: Partitioning methods, Hierarchical methods. Outlier – Outlier detection techniques. Advanced Techniques, Web Mining, Text mining, Spatial and Temporal Mining. Data mining Applications, Data mining and society. Data mining Trends, Data mining softwares.",
+      },
       exam: "Third Semester M.Sc. Degree Examination · SDE · Computer Science",
       // Extra answers (Q16+) sit outside the module sections; map them to their syllabus module.
       extraModule: { 16: 2, 17: 1, 18: 1, 19: 2, 20: 2, 21: 3, 22: 3, 23: 3 },
@@ -280,8 +296,51 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
     if (!res.ok) throw new Error("fetch " + res.status);
     const md = await res.text();
     const data = parse(md, sub);
+    data.topics = parseChecklist(md);
+    data.notes = {};
+    await Promise.all(Object.entries(sub.notes || {}).map(async ([m, f]) => {
+      try { const r = await fetch(f); if (r.ok) data.notes[m] = parseNotes(await r.text()); } catch (e) {}
+    }));
     cache[sub.code] = data;
     return data;
+  }
+
+  // Syllabus coverage checklist rows: | module | topic | where (Q refs, Notes M# §a–b) |
+  function parseChecklist(md) {
+    const topics = [];
+    let inCk = false;
+    for (const line of md.split(/\r?\n/)) {
+      if (/^## Syllabus coverage checklist/i.test(line)) { inCk = true; continue; }
+      if (inCk && /^#|^---\s*$/.test(line)) break;
+      if (!inCk) continue;
+      const m = line.match(/^\|\s*(\d)\s*\|\s*(.+?)\s*\|\s*(.+?)\s*\|\s*$/);
+      if (!m) continue;
+      const notes = [];
+      for (const r of m[3].matchAll(/Notes M(\d) §(\d+)(?:[–-](\d+))?/g)) {
+        const from = +r[2], to = r[3] ? +r[3] : from;
+        for (let s = from; s <= to; s++) notes.push({ m: +r[1], s });
+      }
+      topics.push({ module: +m[1], title: m[2], qs: [...m[3].matchAll(/Q(\d+)/g)].map((x) => +x[1]), notes });
+    }
+    topics.forEach((t, i) => { t.id = "T" + (i + 1); });
+    return topics;
+  }
+
+  // Module notes: numbered "## N. Title" sections.
+  function parseNotes(md) {
+    const secs = {};
+    let cur = null, inFence = false;
+    for (const line of md.split(/\r?\n/)) {
+      if (/^```/.test(line)) inFence = !inFence;
+      if (!inFence && /^## /.test(line)) {
+        const m = line.match(/^## (\d+)\.\s*(.*)$/);
+        cur = m ? (secs[+m[1]] = { title: m[2].trim(), body: [] }) : null;
+        continue;
+      }
+      if (cur) cur.body.push(line);
+    }
+    Object.values(secs).forEach((s) => { s.body = s.body.join("\n").replace(/\n-{3,}\s*$/m, "").trim(); });
+    return secs;
   }
 
   function parse(md, sub) {
@@ -344,8 +403,10 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
   const opened = new Set();
   let mock = null; // { paper, endsAt, remaining, running, showAns }
 
-  const VIEWS = ["learn", "flashcards", "formulas", "mock"];
-  const currentView = () => { const h = location.hash.slice(1); return VIEWS.includes(h) ? h : "learn"; };
+  const VIEWS = ["understand", "learn", "flashcards", "formulas", "mock"];
+  const currentView = () => { const h = location.hash.slice(1); return VIEWS.includes(h) ? h : "understand"; };
+  let uModule = 1;
+  const topicOpen = {}; // key -> "notes" | "short"
   window.addEventListener("hashchange", render);
 
   const key = (k) => SUBJECTS[subIdx].code + ":" + k;
@@ -360,7 +421,8 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
     try { data = await loadSubject(sub); }
     catch (e) { root.innerHTML = '<p class="empty">The answer sheet for ' + esc(sub.code) + " couldn't load. Check your connection and reopen the page.</p>"; return; }
     renderProgress(sub, data);
-    if (view === "learn") renderLearn(root, sub, data);
+    if (view === "understand") renderUnderstand(root, sub, data);
+    else if (view === "learn") renderLearn(root, sub, data);
     else if (view === "flashcards") renderFlash(root, sub, data);
     else if (view === "formulas") renderFormulas(root, sub);
     else renderMock(root, sub, data);
@@ -374,11 +436,78 @@ main .wrap { padding-block: 18px 60px; display: flex; flex-direction: column; ga
       return { label: "Module " + m, done, total: qs.length };
     });
     const known = data.partA.filter((p) => progress.known[key(p.id)]).length;
-    cells.push({ label: "Part A", done: known, total: data.partA.length });
+    const und = data.topics.filter((t) => progress.learned[key(t.id)]).length;
+    cells.unshift({ label: "Topics understood", done: und, total: data.topics.length });
+    cells.push({ label: "Short answers", done: known, total: data.partA.length });
     el.innerHTML = cells.map((c) => {
       const pct = c.total ? Math.round((100 * c.done) / c.total) : 0;
       return '<div class="prog"><div class="lbl"><b>' + c.label + "</b><span>" + c.done + " / " + c.total + '</span></div><div class="meter" role="progressbar" aria-label="' + c.label + ' progress" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pct + '%"></i></div></div>';
     }).join("");
+  }
+
+  function goToEssay(m, n) {
+    moduleTab = m; topOnly = false; opened.add(key("Q" + n));
+    if (location.hash === "#learn") render(); else location.hash = "learn";
+    setTimeout(() => { const t = document.getElementById("q" + n); if (t) t.scrollIntoView({ block: "start" }); }, 120);
+  }
+
+  function shortAnswersFor(data, qs) {
+    const set = new Set(qs);
+    return data.partA.filter((p) => [...p.a.matchAll(/Q(\d+)/g)].some((x) => set.has(+x[1])));
+  }
+
+  function renderUnderstand(root, sub, data) {
+    const qByN = {}; data.longs.forEach((q) => { qByN[q.n] = q; });
+    const topics = data.topics.filter((t) => t.module === uModule);
+    root.innerHTML =
+      '<div class="tools"><div class="seg" role="group" aria-label="Module">' +
+      [1, 2, 3].map((m) => '<button type="button" data-m="' + m + '" aria-pressed="' + (m === uModule) + '">Module ' + m + "</button>").join("") + "</div></div>" +
+      '<section class="syl"><h2>Module ' + uModule + ' syllabus</h2><p>' + esc((sub.syllabus || {})[uModule] || "") + "</p>" +
+      '<ol class="steps"><li><b>Understand</b> each topic below in order: read it, then tick <i>Understood</i>.</li><li><b>Essays</b>: open the topic\'s 8-mark answer and learn its skeleton.</li><li><b>Short answers</b>: test yourself on the 3-mark questions.</li></ol></section>' +
+      '<div class="list" id="topics"></div>';
+    root.querySelectorAll("[data-m]").forEach((b) => b.addEventListener("click", () => { uModule = +b.dataset.m; render(); }));
+    const list = root.querySelector("#topics");
+    topics.forEach((t, i) => list.appendChild(topicCard(t, i + 1, data, qByN)));
+  }
+
+  function topicCard(t, idx, data, qByN) {
+    const k = key(t.id);
+    const done = !!progress.learned[k];
+    const mode = topicOpen[k] || "";
+    const shorts = shortAnswersFor(data, t.qs);
+    const el = document.createElement("article");
+    el.className = "card topic" + (done ? " learned" : "");
+    const essayBtns = t.qs.map((n) => { const q = qByN[n]; return q ? '<button type="button" class="btn" data-essay="' + q.module + ":" + n + '">Essay Q' + n + (q.stars ? " " + "★".repeat(q.stars) : "") + "</button>" : ""; }).join("");
+    el.innerHTML =
+      '<div class="card-head"><span class="qnum">' + uModule + "." + idx + '</span><div class="qtext"><h3>' + esc(t.title) + "</h3></div></div>" +
+      '<div class="card-actions">' +
+      '<button type="button" class="btn ' + (mode === "notes" ? "" : "primary") + '" data-act="notes">' + (mode === "notes" ? "Hide explanation" : "Understand") + "</button>" +
+      essayBtns +
+      (shorts.length ? '<button type="button" class="btn" data-act="short">' + (mode === "short" ? "Hide short answers" : "Short answers (" + shorts.length + ")") + "</button>" : "") +
+      '<button type="button" class="btn ' + (done ? "done" : "") + '" data-act="done" aria-pressed="' + done + '">' + (done ? "Understood ✓" : "Mark understood") + "</button></div>";
+
+    if (mode === "notes") {
+      const parts = t.notes.map((r) => (data.notes[r.m] || {})[r.s]).filter(Boolean);
+      let html;
+      if (parts.length) html = parts.map((s) => "<h3>" + inline(s.title) + "</h3>" + mdToHtml(s.body)).join("");
+      else {
+        const q = qByN[t.qs[0]];
+        html = q ? '<p class="note">This topic is explained in full in essay Q' + q.n + ":</p>" + mdToHtml(q.body) : '<p class="note">No explanation found for this topic yet.</p>';
+      }
+      el.insertAdjacentHTML("beforeend", '<div class="answer">' + html + "</div>");
+    } else if (mode === "short") {
+      el.insertAdjacentHTML("beforeend", '<div class="answer"><dl class="shorts">' + shorts.map((p) => "<dt>" + inline(p.q) + "</dt><dd>" + inline(p.a) + "</dd>").join("") + "</dl></div>");
+    }
+    const rerender = () => el.replaceWith(topicCard(t, idx, data, qByN));
+    el.querySelector('[data-act="notes"]').addEventListener("click", () => { topicOpen[k] = mode === "notes" ? "" : "notes"; rerender(); });
+    const sb = el.querySelector('[data-act="short"]');
+    if (sb) sb.addEventListener("click", () => { topicOpen[k] = mode === "short" ? "" : "short"; rerender(); });
+    el.querySelector('[data-act="done"]').addEventListener("click", () => {
+      if (progress.learned[k]) delete progress.learned[k]; else progress.learned[k] = true;
+      saveProgress(); rerender(); renderProgress(SUBJECTS[subIdx], data);
+    });
+    el.querySelectorAll("[data-essay]").forEach((b) => b.addEventListener("click", () => { const [m, n] = b.dataset.essay.split(":").map(Number); goToEssay(m, n); }));
+    return el;
   }
 
   function renderLearn(root, sub, data) {
