@@ -17,6 +17,12 @@ Source: [2026-nov-sem3-sem4-timetable.pdf](2026-nov-sem3-sem4-timetable.pdf). Ap
 
 Not taking: DCS32 (Wed 25 Nov) and DCS34 (Mon 30 Nov).
 
+## Exam centre
+
+**Govt. Sanskrit College, Thiruvananthapuram** (all 5 papers). Exam codes: Sem 3 = 81117308, Sem 4 = 81117408.
+Bring the **hall ticket and a photo ID card** every day. Be seated 5 minutes before the start. No phones or smartwatches.
+The hall ticket PDF is kept locally in `msc-cs/private/` (git-ignored, not on GitHub).
+
 ## Study plan
 
 | Dates | Study |
