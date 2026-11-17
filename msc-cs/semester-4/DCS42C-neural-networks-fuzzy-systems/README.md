@@ -33,6 +33,14 @@
 
 ## Past Questions
 
+### Oct 2025 (W-1246)
+**Part A (3 marks):** artificial neuron models · ADALINE · limitations of perceptron · ART network · BAM · weight training in Kohonen SOM · crisp vs fuzzy sets · fuzzy logic · applications of GA
+
+**Part B (8 marks):**
+- **Module 1:** applications of ANN · classification of ANN · multilayer perceptron
+- **Module 2:** ART algorithm · pattern recognition · steps in Kohonen algorithm
+- **Module 3:** properties of membership functions · fuzzification · creation of offspring and reproduction in GA
+
 ### Oct 2024 (U-1893)
 **Part A (3 marks):** biological neuron · multilayer perceptron · applications of ANN · Adaptive Resonance Theory · associative memory · Kohonen self-organizing networks · fuzzy sets · fuzzification · genetic modelling
 

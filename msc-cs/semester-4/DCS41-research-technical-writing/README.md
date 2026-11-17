@@ -30,6 +30,14 @@
 
 ## Past Questions
 
+### Oct 2025 (W-1245)
+**Part A (3 marks):** defining and formulating the research problem · scientific method · seminar and conference · writing a research proposal · report layout · lists in LaTeX · sets in Python · iterators in Python · PyDoc
+
+**Part B (8 marks):**
+- **Module 1:** motivation and objectives of research · identifying the gap area from literature review · critical communication
+- **Module 2:** steps in report preparation · header and footer in LaTeX · tables and hyperlinks in LaTeX
+- **Module 3:** dictionaries in Python · defining your own functions · Python interacting with databases
+
 ### Oct 2024 (U-1892)
 **Part A (3 marks):** objectives of research · importance of literature review · hypothesis · types of report · bibliography · inserting images in LaTeX · lists in Python · lambda functions · custom exceptions in Python
 

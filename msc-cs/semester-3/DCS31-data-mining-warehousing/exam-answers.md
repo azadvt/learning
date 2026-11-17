@@ -1,7 +1,7 @@
 # DCS31 Data Mining & Warehousing — Exam Answer Sheet
 
 > **How to use:** Part B = answer 2 of 3 per module (8 marks each). Part A = 9 short answers (3 marks each).
-> ⭐ = asked before (Oct 2024, Oct 2023 or Dec 2021 papers, the test paper or the 2023 assignment). ⭐⭐ = asked in two or more.
+> ⭐ = asked before (Oct 2025, Oct 2024, Oct 2023 or Dec 2021 papers, the test paper or the 2023 assignment). ⭐⭐ = asked in two or more.
 > **Asked in almost every source:** k-means (Q13), data visualization (Q2), backpropagation / neural network classification (Q11), Bayes (Q16), similarity measures (Q3), data cube (Q6/Q8/Q20), warehouse design (Q19).
 > This sheet **works together with the module notes** (`module-1/notes.md`, etc.). Topics already explained well there are linked; the topics the notes cover thinly are written out in full here.
 
@@ -13,10 +13,10 @@
 | 1 | Technologies used | **Q1**, Notes M1 §4 |
 | 1 | Applications, major issues | Notes M1 §5–6, **Q5** |
 | 1 | Data objects and attribute types | Notes M1 §7 |
-| 1 | Basic statistical description | Notes M1 §8 |
+| 1 | Basic statistical description | **Q24**, Notes M1 §8 |
 | 1 | Data visualization | **Q2**, Notes M1 §9 |
 | 1 | Similarity and dissimilarity | **Q3**, Notes M1 §10 |
-| 1 | Preprocessing: cleaning, integration, reduction, transformation, discretization | **Q4**, **Q17**, Notes M1 §11 |
+| 1 | Preprocessing: cleaning, integration, reduction, transformation, discretization | **Q4**, **Q25**, **Q26**, **Q17**, Notes M1 §11 |
 | 2 | Data warehousing basics, architecture | **Q7**, Notes M2 §1–2 |
 | 2 | Data cube, OLAP, schemas | **Q6**, Notes M2 §3–4 |
 | 2 | Warehouse design and usage | **Q19**, Notes M2 §5 |
@@ -28,8 +28,8 @@
 | 3 | Cluster analysis, requirements, methods | **Q12**, Notes M3 §1 |
 | 3 | Partitioning methods (k-means, k-medoids) | **Q13**, Notes M3 §2 |
 | 3 | Hierarchical methods, BIRCH, CHAMELEON | **Q21**, Notes M3 §3 |
-| 3 | Outliers and outlier detection | **Q14**, Notes M3 §4–5 |
-| 3 | Web, text, spatial mining | Notes M3 §6 |
+| 3 | Outliers and outlier detection | **Q14**, **Q27**, Notes M3 §4–5 |
+| 3 | Web, text, spatial mining | **Q28**, Notes M3 §6 |
 | 3 | Temporal mining | **Q22**, Notes M3 §6 |
 | 3 | Applications, software | **Q15**, Notes M3 §7, Notes M3 §10 |
 | 3 | Data mining and society, trends | **Q23**, Notes M3 §8–9 |
@@ -144,9 +144,9 @@ Split the dimensions into subsets (subspaces) and show them hierarchically.
 
 ---
 
-## Q3. ⭐ Measures of data similarity and dissimilarity
+## Q3. ⭐⭐ Measures of data similarity and dissimilarity
 
-**Asked:** 2024 Part B ("any four measures")
+**Asked:** 2024 Part B ("any four measures"); Oct 2025 Part A ("data matrix and dissimilarity matrix")
 
 - **Similarity** measures how alike two objects are (0 to 1, higher means more alike).
 - **Dissimilarity** (distance) measures how different they are (0 means identical).
@@ -263,9 +263,9 @@ Sorted: 4, 8, 15, 21, 21, 24, 25, 28, 34, in equal-frequency bins of 3:
 
 # MODULE 2
 
-## Q6. ⭐ Role of the data cube in the multidimensional model and its schemas
+## Q6. ⭐⭐ Role of the data cube in the multidimensional model and its schemas
 
-**Asked:** 2024 Part B
+**Asked:** 2024 Part B; Oct 2025 Part A ("role of data cube in data mining")
 
 ### Data cube
 - A data cube lets data be **modelled and viewed in multiple dimensions**.
@@ -327,9 +327,9 @@ time Q2   |  680   |  952   |  31    |
 
 ---
 
-## Q7. ⭐ Data warehouse architecture, data warehouse models, metadata repository
+## Q7. ⭐⭐ Data warehouse architecture, data warehouse models, metadata repository
 
-**Asked:** 2024 Part A ("features of any two data warehouse models", "properties of metadata repository")
+**Asked:** 2024 Part A ("features of any two data warehouse models", "properties of metadata repository"); Oct 2025 Part B ("three-tier data warehousing architecture and its models")
 
 ### Definition (Inmon)
 A data warehouse is a **subject-oriented, integrated, time-variant and non-volatile** collection of data that supports management's decision making.
@@ -423,9 +423,9 @@ BOTTOM TIER    Data warehouse server (RDBMS) + data marts + METADATA REPOSITORY
 
 ---
 
-## Q9. ⭐ Decision tree induction for classification
+## Q9. ⭐⭐ Decision tree induction for classification
 
-**Asked:** 2024 Part A
+**Asked:** 2024 Part A; Dec 2021 Part B; Oct 2025 Part B
 
 - A **flowchart-like tree**: internal nodes test an attribute, branches are test outcomes and leaves are class labels.
 - **Classify** a new tuple by tracing the path from the root to a leaf.
@@ -516,7 +516,7 @@ return Rule_set
 
 ## Q11. ⭐⭐ Backpropagation algorithm (classification by backpropagation)
 
-**Asked:** 2024 Part B, Test paper
+**Asked:** 2024 Part B, Test paper; Oct 2025 Part A ("role of neural networks in classification")
 
 **Backpropagation** is a neural network learning algorithm for a **multilayer feed-forward network**. It learns by iteratively processing training tuples, comparing the network's prediction with the actual target, and **adjusting the weights to minimize the mean-squared error**. The changes travel **backwards** from the output layer through the hidden layers, hence the name.
 
@@ -568,9 +568,9 @@ x = (1, 0, 1), target T = 1, l = 0.9. Suppose the output unit gives O₆ = 0.474
 
 # MODULE 3
 
-## Q12. ⭐ Basics, requirements and methods of clustering
+## Q12. ⭐⭐ Basics, requirements and methods of clustering
 
-**Asked:** 2024 Part A (requirements), 2024 Part B
+**Asked:** 2024 Part A (requirements), 2024 Part B; Dec 2021 and Oct 2025 Part A ("what is cluster analysis")
 
 ### Basics
 - **Cluster analysis** partitions a set of objects into **clusters** so that objects in a cluster are **similar** to each other and **dissimilar** to objects in other clusters.
@@ -609,7 +609,7 @@ Partitioning criteria (single-level or hierarchical); separation of clusters (ex
 
 ## Q13. ⭐⭐ k-means partitioning method with example
 
-**Asked:** 2024 Part B, Test paper
+**Asked:** 2024 Part B, Test paper; Dec 2021 Part B; Oct 2025 Part A ("write down the k-means algorithm")
 
 **Partitioning method:** given n objects and k, build k partitions (clusters) where each cluster has at least one object and each object belongs to exactly one cluster. It optimizes an objective function, the within-cluster variation.
 
@@ -659,9 +659,9 @@ Repeating gives no further change, so the final clusters are **{A, B}** and **{C
 
 ---
 
-## Q14. ⭐ Outliers: types and detection techniques
+## Q14. ⭐⭐ Outliers: types and detection techniques
 
-**Asked:** 2024 Part A ("types of outliers")
+**Asked:** 2024 Part A ("types of outliers"); Oct 2025 Part B (univariate and multivariate detection, see **Q27**)
 
 An **outlier** is a data object that **deviates significantly** from the rest, as if generated by a different mechanism. It is different from noise, which is random error.
 
@@ -684,9 +684,9 @@ An **outlier** is a data object that **deviates significantly** from the rest, a
 
 ---
 
-## Q15. ⭐ Data mining applications and software
+## Q15. ⭐⭐ Data mining applications and software
 
-**Asked:** 2024 Part B, Test paper
+**Asked:** 2024 Part B, Test paper; Dec 2021 Part B ("classify data mining applications"); Oct 2025 Part A ("features of data mining software")
 
 ### Applications
 1. **Financial data analysis (banking)**
@@ -855,9 +855,9 @@ Classify **X = (age = youth, income = medium, student = yes, credit = fair)**.
 
 ---
 
-## Q19. ⭐ Data warehouse design (with example) and its usage
+## Q19. ⭐⭐ Data warehouse design (with example) and its usage
 
-**Asked:** Dec 2021 Part B, Oct 2023 Part B
+**Asked:** Dec 2021 Part B, Oct 2023 Part B, Oct 2025 Part B ("approaches for data warehouse design and its usages")
 
 ### Business analysis framework: four views
 1. **Top-down view**: chooses the information the business needs.
@@ -931,9 +931,9 @@ Answer using **Q8** (efficient cube computation, indexing, OLAP query processing
 
 ---
 
-## Q21. ⭐ Hierarchical clustering methods (incl. BIRCH and CHAMELEON)
+## Q21. ⭐⭐ Hierarchical clustering methods (incl. BIRCH and CHAMELEON)
 
-**Asked:** 2023 assignment ("explain hierarchical methods", "BIRCH", "CHAMELEON"); Dec 2021 Part A (agglomerative vs divisive)
+**Asked:** 2023 assignment ("explain hierarchical methods", "BIRCH", "CHAMELEON"); Dec 2021 Part A (agglomerative vs divisive); Oct 2025 Part B ("compare agglomerative and divisive with examples")
 
 A **hierarchical method** groups the data objects into a **tree of clusters** (a hierarchy).
 
@@ -1076,6 +1076,335 @@ Y = T × C × S × I (multiplicative model)
 
 ---
 
+# MORE 8-MARK ANSWERS (from the Oct 2025 paper)
+
+## Q24. ⭐ Basic statistical descriptions of data (with examples)
+
+**Asked:** Oct 2025 Part B (Module 1)
+
+**Basic statistical descriptions** summarize a dataset with a few numbers and simple plots. They show the **centre** of the data, its **spread**, and any **outliers**, before mining starts.
+
+**Running example:** salaries (in ₹ thousands) of 12 employees, sorted:
+`30, 36, 47, 50, 52, 52, 56, 60, 63, 70, 70, 110`
+
+### 1. Measures of central tendency (where is the middle?)
+| Measure | Formula / rule | Example |
+|---|---|---|
+| **Mean** | x̄ = Σxᵢ / N | 696 / 12 = **58** |
+| **Weighted mean** | Σwᵢxᵢ / Σwᵢ | used when values have different importance |
+| **Trimmed mean** | mean after dropping the top and bottom p% | removes the effect of 110 |
+| **Median** | middle value (average of the two middle values when N is even) | (52 + 56) / 2 = **54** |
+| **Mode** | most frequent value | 52 and 70 → **bimodal** |
+| **Midrange** | (min + max) / 2 | (30 + 110) / 2 = **70** |
+
+- The mean is sensitive to extreme values. The median is robust.
+- **Skewness:** mean > median > mode means **positively skewed** (a long tail to the right). Here the mean (58) > the median (54), so the data is positively skewed because of 110.
+- Empirical relation for moderately skewed data: mean − mode ≈ 3 × (mean − median).
+
+### 2. Measures of dispersion (how spread out?)
+- **Range** = max − min = 110 − 30 = **80**
+- **Quartiles:** Q1 is the 25th percentile and Q3 is the 75th.
+  - Q1 = median of the lower half (30…52) = (47 + 50)/2 = **48.5**
+  - Q3 = median of the upper half (56…110) = (63 + 70)/2 = **66.5**
+- **Interquartile range:** IQR = Q3 − Q1 = **18**
+- **Outlier rule:** a value is a suspected outlier if it is more than 1.5 × IQR below Q1 or above Q3.
+  - The fences are 48.5 − 27 = 21.5 and 66.5 + 27 = 93.5, so **110 is an outlier**.
+- **Variance and standard deviation:**
+```
+σ² = (1/N) Σ (xᵢ − x̄)²  =  (1/N) Σ xᵢ²  −  x̄²
+   = 44918/12 − 58²  =  3743.17 − 3364  =  379.17
+σ  = √379.17 ≈ 19.47
+```
+  A small σ means the values are close to the mean. A large σ means they are spread out.
+
+### 3. Five-number summary and box plot
+Five-number summary = **Min, Q1, Median, Q3, Max** = 30, 48.5, 54, 66.5, 110.
+```
+          Q1   Median   Q3
+  |-------[======|======]------|             o
+  30     48.5    54    66.5    70           110
+  whisker      box = IQR      whisker to the   outlier, plotted
+                              largest          separately
+                              non-outlier
+```
+
+### 4. Graphic displays of basic statistics
+1. **Histogram:** bars show how many values fall into each range (bucket). It shows the shape of the distribution.
+2. **Quantile plot:** each value xᵢ is plotted against fᵢ, the percentage of data ≤ xᵢ.
+3. **Quantile–quantile (Q-Q) plot:** the quantiles of one distribution against another, to compare two groups (for example, salaries in two branches).
+4. **Scatter plot:** pairs (x, y) of two numeric attributes. It shows correlation (positive, negative or none), clusters and outliers.
+
+**Conclusion:** these descriptions help with data cleaning (finding noise and outliers), choosing methods, and understanding data before mining.
+
+---
+
+## Q25. ⭐ The need for data cleaning (with examples)
+
+**Asked:** Oct 2025 Part B (Module 1)
+
+**Data cleaning** (data cleansing) finds and corrects errors in data. It fills in **missing values**, smooths **noise**, identifies or removes **outliers**, and resolves **inconsistencies**. It is the first and most important preprocessing step.
+
+### 1. Why is data cleaning needed? Real data is dirty
+| Problem | Meaning | Example |
+|---|---|---|
+| **Incomplete** | values or attributes are missing | a customer's *income* field is empty |
+| **Noisy** | errors or outliers | *age* = 200, *salary* = −10 |
+| **Inconsistent** | values contradict each other | age = 42 but birth year = 2015; dept "CS" in one row and "Comp. Sci." in another |
+| **Duplicate** | the same entity is stored twice | "R. Kumar" and "Ramesh Kumar" at the same address |
+| **Disguised missing** | a default value hides a missing one | every unknown birthday entered as 1 January |
+
+**Causes:** faulty data-entry instruments, human or computer errors, data transmission errors, technology limits (buffer size), different naming conventions, and fields left blank because they were "not applicable" at entry time.
+
+### 2. Why it matters: "garbage in, garbage out"
+- Mining dirty data gives **wrong or misleading patterns**.
+- A warehouse needs **consistent, integrated** data for correct decisions.
+- Data quality = accuracy, completeness, consistency, timeliness, believability and interpretability.
+
+### 3. Handling missing values
+1. **Ignore the tuple:** only when the class label is missing. It wastes data.
+2. **Fill in manually:** accurate but slow for large data.
+3. **Use a global constant** such as "Unknown". The algorithm may wrongly treat "Unknown" as a real value.
+4. **Use the attribute mean or median**, for example average income = ₹50,000.
+5. **Use the mean of the same class**, for example the average income of *low-risk* customers.
+6. **Use the most probable value**, predicted by regression, Bayesian inference or a decision tree. This is the most popular because it uses the other attributes.
+
+### 4. Handling noisy data (smoothing)
+**a) Binning:** sort the values, split them into bins, then smooth.
+Example: prices sorted `5, 10, 11, 13, 15, 35, 50, 55, 72`, in equal-frequency bins of 3.
+
+| Bin | Values | Smoothed by bin means | Smoothed by bin boundaries |
+|---|---|---|---|
+| 1 | 5, 10, 11 | 8.67, 8.67, 8.67 | 5, 11, 11 |
+| 2 | 13, 15, 35 | 21, 21, 21 | 13, 13, 35 |
+| 3 | 50, 55, 72 | 59, 59, 59 | 50, 50, 72 |
+
+(For boundaries, each value is replaced by the nearer of the bin's min and max.)
+
+**b) Regression:** fit a line or curve, then replace values with the fitted values.
+**c) Outlier analysis by clustering:** values that fall outside all clusters are possible noise.
+
+### 5. Data cleaning as a process
+1. **Discrepancy detection:** use **metadata** (domain, data type, range) and rules:
+   - *Unique rule:* each value of the attribute must be different, like a roll number.
+   - *Consecutive rule:* no missing values between the lowest and highest, like cheque numbers.
+   - *Null rule:* how blanks, "?" and "NA" are to be treated.
+2. **Tools:**
+   - *Data scrubbing* tools use domain knowledge, such as postal codes and spell-checking.
+   - *Data auditing* tools find rule violations and outliers.
+3. **Data transformation:** correct the discrepancies with ETL tools and data migration tools.
+4. **Iterate:** detection and correction repeat, and newer tools (for example Potter's Wheel) do this interactively.
+
+```
+Dirty data -> Discrepancy detection -> Transformation (correct) -> Check again -> Clean data
+                    ^______________________________________________|
+```
+
+---
+
+## Q26. ⭐ Issues to consider during data integration
+
+**Asked:** Oct 2025 Part B (Module 1)
+
+**Data integration** merges data from **multiple sources** (databases, data cubes, flat files) into one coherent store, such as a data warehouse. Careful integration reduces **redundancy and inconsistency**, which improves the speed and accuracy of mining.
+
+### Issue 1: Entity identification problem (schema integration and object matching)
+- The same real-world entity has **different names** in different sources. For example, `customer_id` in one database and `cust_number` in another.
+- Codes differ. For example, *pay_type* is "H"/"S" in one source and "1"/"2" in another.
+- **Solution:** use **metadata** for each attribute (name, meaning, data type, range of allowed values, null rules). Check functional dependencies and referential constraints so they still hold after merging.
+
+### Issue 2: Redundancy and correlation analysis
+An attribute is **redundant** if it can be derived from another, such as *annual revenue* from monthly revenue, or *age* from date of birth. Correlation analysis detects redundancy.
+
+**a) Nominal data: χ² (chi-square) test**
+```
+χ² = Σ (observed − expected)² / expected
+expected = (row total × column total) / N
+```
+*Example:* is *gender* related to *preferred reading*? 1,500 people were surveyed (expected counts in brackets).
+
+| | Male | Female | Total |
+|---|---|---|---|
+| Fiction | 250 (90) | 200 (360) | 450 |
+| Non-fiction | 50 (210) | 1000 (840) | 1050 |
+| Total | 300 | 1200 | 1500 |
+
+χ² = (250−90)²/90 + (50−210)²/210 + (200−360)²/360 + (1000−840)²/840
+   = 284.44 + 121.90 + 71.11 + 30.48 = **507.94**
+
+Degrees of freedom = (2−1)(2−1) = 1. The critical value at the 0.001 level is 10.828. Since 507.94 > 10.828, the two attributes are **strongly correlated**, not independent.
+
+**b) Numeric data: correlation coefficient (Pearson's r) and covariance**
+```
+r(A,B)   = Σ (aᵢ − Ā)(bᵢ − B̄) / (n σA σB),      −1 ≤ r ≤ +1
+Cov(A,B) = Σ (aᵢ − Ā)(bᵢ − B̄) / n  =  (Σ aᵢbᵢ)/n − Ā·B̄
+```
+- r > 0: positively correlated. A high r means one attribute may be removed as redundant.
+- r = 0: no linear correlation.
+- r < 0: negatively correlated.
+
+*Example:* the prices of two stocks over 5 days are A = (6, 5, 4, 3, 2) and B = (20, 10, 14, 5, 5).
+- Ā = 4 and B̄ = 10.8
+- Cov = (120 + 50 + 56 + 15 + 10)/5 − 4 × 10.8 = 50.2 − 43.2 = **7**
+- Cov > 0, so the two prices rise together (r ≈ 0.87).
+
+### Issue 3: Tuple duplication
+- The **same record appears twice**, often because of denormalized tables or inconsistent updates. For example, the same customer appears with two different addresses.
+- Detect it with duplicate-matching rules and remove the extra copy.
+
+### Issue 4: Detecting and resolving data value conflicts
+For the same entity, the attribute values from different sources **differ**:
+- **Units:** weight in kg vs pounds; distance in km vs miles.
+- **Currency:** a price in ₹ vs $; a hotel price with tax vs without tax.
+- **Scale or encoding:** grades A–F vs percentages; dates as dd/mm/yyyy vs mm/dd/yyyy.
+- **Abstraction level:** *total_sales* for one store vs for a whole region.
+
+**Solution:** convert everything to a standard unit, format and level during ETL.
+
+```
+ Source 1 (cust_id, Rs) --+
+ Source 2 (cust_no, $)  --+--> [ schema matching | correlation check |
+ Flat files             --+      de-duplicate | resolve conflicts ] --> Warehouse
+```
+
+**Conclusion:** good integration gives a single, non-redundant, consistent view of the data, which improves mining speed and accuracy.
+
+---
+
+## Q27. ⭐ Detecting univariate and multivariate outliers
+
+**Asked:** Oct 2025 Part B (Module 3)
+
+An **outlier** is an object that deviates significantly from the rest of the data. **Univariate** data has **one** attribute, and **multivariate** data has **two or more**. Statistical (parametric) methods assume the normal objects come from a known distribution, so objects in **low-probability regions** are outliers.
+
+### A. Univariate outlier detection (one attribute)
+**1. The 3σ rule (assuming a normal distribution)**
+- About 99.7% of the data lies within μ ± 3σ.
+- A value outside [μ − 3σ, μ + 3σ] is an outlier.
+- Equivalently, use the **z-score** z = (x − μ)/σ: |z| > 3 means an outlier.
+
+**2. Box plot / IQR method (makes no distribution assumption)**
+- A value is an outlier if it is below Q1 − 1.5 × IQR or above Q3 + 1.5 × IQR.
+
+**3. Grubbs' test (maximum normed residual test)**
+```
+G = max |xᵢ − x̄| / s
+Outlier if  G > ((N − 1)/√N) · √( t² / (N − 2 + t²) )
+t = the t-distribution value at significance α/(2N), with N − 2 degrees of freedom
+```
+
+**4. Non-parametric: histogram method**
+- Build a histogram of the data. A value that falls in a bin with very few or no objects is an outlier.
+
+**Worked example** (the salaries in Q24): `30, 36, 47, 50, 52, 52, 56, 60, 63, 70, 70, 110`
+- **IQR method:** Q1 = 48.5, Q3 = 66.5 and IQR = 18. The fences are 21.5 and 93.5, so **110 is an outlier**.
+- **z-score:** μ = 58 and σ = 19.47, so z(110) = (110 − 58)/19.47 = **2.67 < 3**, and it is *not* flagged.
+- Why the difference? The outlier itself inflates μ and σ. This is called **masking**. Without 110, μ = 53.27 and σ = 12.06, so z(110) = 4.7, which is a clear outlier.
+- **Lesson:** the median and IQR are more robust than the mean and σ.
+
+### B. Multivariate outlier detection (two or more attributes)
+**Idea:** an object can look normal in each attribute separately but be unusual **in combination**. For example, height 150 cm is normal and weight 90 kg is normal, but a 150 cm person weighing 90 kg is unusual.
+
+**1. Mahalanobis distance**
+```
+MDist(o, ō) = (o − ō)ᵀ S⁻¹ (o − ō)
+ō = the mean vector,  S = the covariance matrix
+```
+- It turns the multivariate problem into a **univariate** one, because each object gets one distance value. Then apply Grubbs' test (or the 3σ rule) to these distances.
+- Unlike Euclidean distance, it accounts for the **correlation and different scales** of the attributes.
+
+**2. χ² (chi-square) statistic**
+```
+χ²(o) = Σᵢ (oᵢ − Eᵢ)² / Eᵢ        Eᵢ = the mean of attribute i over all objects
+```
+- A large χ²(o) means object o is an outlier.
+
+**3. Mixture of parametric distributions**
+- When the normal data forms two or more groups, model it as a mixture of distributions (Gaussians), learned by the EM algorithm. An object with low probability under every component is an outlier.
+
+**4. Other (non-statistical) multivariate methods**
+- **Distance-based:** fewer than a fraction π of the objects lie within distance r.
+- **Density-based:** LOF ≫ 1.
+- **Clustering-based:** the object belongs to no cluster or to a tiny one.
+
+| | Univariate | Multivariate |
+|---|---|---|
+| Data | one attribute | 2+ attributes |
+| Methods | 3σ / z-score, IQR / box plot, Grubbs' test, histogram | Mahalanobis distance + Grubbs, χ² statistic, mixture models, LOF |
+| Catches | extreme single values | unusual **combinations** of values |
+
+---
+
+## Q28. ⭐⭐ Techniques used for web mining (any two)
+
+**Asked:** Oct 2025 Part B (Module 3); Dec 2021 Part A ("three areas of web mining")
+
+**Web mining** uses data mining techniques to discover useful patterns from the World Wide Web: page contents, the hyperlink structure, and usage logs. There are three techniques (areas). In the exam, write any two in detail.
+
+```
+                     Web mining
+         +---------------+----------------+
+    Web content     Web structure      Web usage
+      mining           mining            mining
+  (text, images)  (hyperlink graph)  (server logs, clicks)
+```
+
+### 1. Web content mining
+**Mines the content of web pages:** text, images, audio, video and metadata.
+- **Text mining of pages:** tokenize, remove stop words, stem, and represent each page as a TF-IDF vector.
+- **Classification:** put pages into topics, such as sports or politics (used by web directories).
+- **Clustering:** group similar pages or search results.
+- **Information extraction:** wrappers pull structured data such as product names and prices from pages.
+- **Opinion mining / sentiment analysis:** decide whether reviews are positive or negative.
+- **Multimedia mining:** image and video retrieval by content.
+
+*Applications:* search engines, news aggregation, price comparison, review analysis.
+
+### 2. Web structure mining
+**Mines the hyperlink graph** (pages are nodes and links are edges) to find important pages and communities.
+
+**a) PageRank (used by Google):** a page is important if important pages link to it.
+```
+PR(A) = (1 − d) + d · Σ PR(T) / C(T)     (sum over every page T that links to A)
+d    = damping factor ≈ 0.85
+C(T) = number of out-links of page T
+```
+*Example:* the links are A→B, A→C, B→C and C→A. Start with PR = 1 for every page. Iteration 1 uses the old values.
+
+| Page | Iteration 1 | Converged |
+|---|---|---|
+| A | 0.15 + 0.85 × (1/1) = **1.000** | 1.163 |
+| B | 0.15 + 0.85 × (1/2) = **0.575** | 0.644 |
+| C | 0.15 + 0.85 × (1/2 + 1/1) = **1.425** | 1.192 |
+
+C is the most important page, because both A and B link to it. The ranks always add up to the number of pages (here 3).
+
+**b) HITS (Hyperlink-Induced Topic Search):**
+- An **authority** is a page that many good hubs point to.
+- A **hub** is a page that points to many good authorities.
+- Hub and authority scores are updated in turn until they converge.
+
+*Other uses:* finding web communities, detecting link spam.
+
+### 3. Web usage mining
+**Mines web server logs, clickstreams and cookies** to learn user behaviour.
+1. **Preprocessing:** clean the logs (remove images and robots), identify users, identify sessions, and complete paths.
+2. **Pattern discovery:**
+   - *Association rules:* "users who visit /laptops also visit /bags".
+   - *Sequential patterns:* page A → page B → purchase.
+   - *Clustering:* group users or pages.
+   - *Classification:* predict buyers.
+3. **Pattern analysis:** filter the results with OLAP and visualization.
+
+*Applications:* personalization and recommendations, improving website design, caching and prefetching, targeted advertising.
+
+| | Content | Structure | Usage |
+|---|---|---|---|
+| Data | page text and media | hyperlinks | server logs, clicks |
+| Example technique | TF-IDF + classification | PageRank, HITS | association and sequence mining |
+| Use | topic search, sentiment | ranking pages | personalization |
+
+---
+
 # PART A — Short answers (3 marks each)
 
 **Data integration** — combining data from **multiple sources** (databases, files) into one coherent store. It handles schema integration (cust_id = cust_no), **redundancy** (found by correlation analysis, χ² test) and conflicting values (different units or currencies).
@@ -1143,3 +1472,17 @@ Y = T × C × S × I (multiplicative model)
 **Text mining** — extracting knowledge from unstructured text: tokenization, stop-word removal, stemming, TF-IDF, then classification or clustering (see Notes M3 §6b).
 
 **Spatial and temporal mining** — spatial: patterns in geographic data (disease hotspots). Temporal: patterns over time (trends, seasonality, sequences).
+
+**Data matrix vs dissimilarity matrix** — a **data matrix** (object-by-attribute) stores n objects × p attributes, one row per object; it is *two-mode*. A **dissimilarity matrix** (object-by-object) stores d(i, j) for every pair of objects as an n × n lower-triangular table with 0 on the diagonal; it is *one-mode*. Most clustering and nearest-neighbour methods work on the dissimilarity matrix (see Q3).
+
+**Data transformation strategies** — (1) smoothing (binning, regression), (2) attribute construction (new attributes such as area = length × width), (3) aggregation (daily → monthly sales), (4) **normalization**: min-max, z-score, decimal scaling, (5) discretization (age → youth/adult/senior), (6) concept hierarchy generation for nominal data (street → city → country) (see Q4).
+
+**Role of the data cube in data mining** — a cube stores data pre-aggregated along many dimensions, so analysts can roll up, drill down, slice and dice quickly. It supports **OLAP-based mining**: mining at multiple levels of abstraction, choosing dimensions interactively, and fast feature selection (see Q6).
+
+**Role of neural networks in classification** — a multilayer feed-forward network learns to map input attributes to class labels by adjusting its weights with **backpropagation**. It is good for noisy data and non-linear patterns, and can classify unseen patterns, but training is slow and the result is hard to interpret (a "black box") (see Q11).
+
+**k-means algorithm** — Input: k and a dataset D. (1) Choose k objects as initial centres. (2) Assign each object to the nearest centre. (3) Recompute each cluster mean. (4) Repeat steps 2–3 until the assignments stop changing. It minimizes the within-cluster squared error E = Σ Σ dist(p, cᵢ)² (see Q13).
+
+**Features of data mining software** — supports many data sources and formats; preprocessing tools (cleaning, transformation); many algorithms (classification, clustering, association, outliers); visualization of data and results; scalability to large data; ease of use (GUI and workflow); integration with databases and warehouses; model evaluation and export. Examples: WEKA, RapidMiner, KNIME (see Q15).
+
+**Data warehouse vs traditional database** — see "Data warehouse vs database (OLTP)" above: the warehouse is subject-oriented, integrated, time-variant and non-volatile, built for analysis. The traditional database is operational, current and update-heavy.

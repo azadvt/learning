@@ -4,6 +4,7 @@ Exam pattern: 3 hours, 75 marks. Part A: 9 × 3 = 27 (answer all). Part B: answe
 
 | File | Exam | Subjects |
 |---|---|---|
+| [2025-oct-sem3-sem4.pdf](2025-oct-sem3-sem4.pdf) | Oct 2025 (W-1192…W-1246) | DCS31, DCS32, DCS33, DCS34, DCS35B, DCS41, DCS42C |
 | [2024-oct-sem3-sem4.pdf](2024-oct-sem3-sem4.pdf) | Oct 2024 | DCS31, DCS32, DCS33, DCS34, DCS35B, DCS41, DCS42C |
 | [2023-oct-sem3-sem4.pdf](2023-oct-sem3-sem4.pdf) | Oct 2023 | DCS31, DCS32, DCS33, DCS34, DCS35B, DCS41, DCS42C |
 | [2021-dec-sem3-dcs31-35b-33-32-34.pdf](2021-dec-sem3-dcs31-35b-33-32-34.pdf) | Dec 2021 | DCS31, DCS35B, DCS33, DCS32, DCS34 |

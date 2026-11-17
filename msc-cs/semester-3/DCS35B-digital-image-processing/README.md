@@ -17,6 +17,14 @@
 
 ## Past Questions
 
+### Oct 2025 (W-1196)
+**Part A (3 marks):** adjacency vs connectivity · neighbours of a pixel · three applications · smoothing vs sharpening · image averaging with example · three advantages of frequency operations · interpixel vs coding redundancy · image compression model diagram · colour slicing vs halftoning
+
+**Part B (8 marks):**
+- **Module 1:** fundamental steps with block diagram · sampling and quantization · components of an image processing system
+- **Module 2:** discrete wavelet transform basics · spatial mask from frequency domain · 2-D DFT
+- **Module 3:** JPEG compression procedure · lossy and lossless predictive coding (block diagrams) · (a) image security (b) colour complements
+
 ### Oct 2024 (U-1843)
 **Part A (3 marks):** components of digital image processing · neighbours of a pixel · characteristics of image negatives · histogram · spatial vs frequency domain filtering correspondence · advantages of frequency domain filters · noise in colour images · relative data redundancy and compression ratio · halftoning
 

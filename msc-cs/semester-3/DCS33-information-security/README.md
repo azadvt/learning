@@ -17,6 +17,14 @@
 
 ## Past Questions
 
+### Oct 2025 (W-1194)
+**Part A (3 marks):** symmetric key cryptography · uses of public key cryptography · birthday attack · two-factor authentication · access control matrix · covert channel · simple security protocols · SSL · visible vs invisible watermarking
+
+**Part B (8 marks):**
+- **Module 1:** stream ciphers and block ciphers · RSA algorithm · uses of hash functions
+- **Module 2:** authentication methods · multilevel security models · intrusion detection system
+- **Module 3:** authentication and TCP · any two real-world security protocols · software flaws and malware
+
 ### Oct 2024 (U-1841)
 **Part A (3 marks):** stream ciphers · public key cryptography · uses of hash functions · Message Authentication Code · inference control · IDS · SSH · software flaws · botnet
 
