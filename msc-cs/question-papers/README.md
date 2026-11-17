@@ -15,3 +15,5 @@ Exam pattern: 3 hours, 75 marks. Part A: 9 × 3 = 27 (answer all). Part B: answe
 | [2018-jul-sem4-neural-networks.pdf](2018-jul-sem4-neural-networks.pdf) | Jul 2018 (2016 scheme) | CS1642C Neural Networks & Fuzzy Systems |
 
 Full syllabus: [../syllabus.pdf](../syllabus.pdf)
+
+Exam timetable (Nov 2026): [../timetable/README.md](../timetable/README.md)
