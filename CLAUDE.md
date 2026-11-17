@@ -10,13 +10,15 @@ Personal knowledge base. **Current priority: passing the MSc Computer Science ex
 - **Time:** only a few days to study, so be efficient and exam-focused.
 - **Registered exams. Only these matter; ignore all other subjects.**
 
-| Exam order | Code | Subject | Folder |
+| Exam date (Nov 2026) | Code | Subject | Folder |
 |---|---|---|---|
-| 1 | DCS31 | Data Mining & Warehousing | `msc-cs/semester-3/DCS31-data-mining-warehousing/` |
-| 2 | DCS33 | Information Security | `msc-cs/semester-3/DCS33-information-security/` |
-| 3 | DCS35B | Digital Image Processing (Elective I) | `msc-cs/semester-3/DCS35B-digital-image-processing/` |
-| 4 | DCS41 | Research & Technical Writing | `msc-cs/semester-4/DCS41-research-technical-writing/` |
-| 5 | DCS42C | Neural Networks & Fuzzy Systems (Elective II) | `msc-cs/semester-4/DCS42C-neural-networks-fuzzy-systems/` |
+| Mon 23 Nov | DCS31 | Data Mining & Warehousing | `msc-cs/semester-3/DCS31-data-mining-warehousing/` |
+| Fri 27 Nov | DCS33 | Information Security | `msc-cs/semester-3/DCS33-information-security/` |
+| Wed 2 Dec | DCS35B | Digital Image Processing (Elective I) | `msc-cs/semester-3/DCS35B-digital-image-processing/` |
+| Fri 4 Dec | DCS41 | Research & Technical Writing | `msc-cs/semester-4/DCS41-research-technical-writing/` |
+| Mon 7 Dec | DCS42C | Neural Networks & Fuzzy Systems (Elective II) | `msc-cs/semester-4/DCS42C-neural-networks-fuzzy-systems/` |
+
+Official timetable (Univ. of Kerala, approved 13-Nov-2026): 1.30–4.30 pm, but **Fridays 2.00–5.00 pm**.
 
 - **Not registered:** DCS32 (Distributed Systems & Cloud) and DCS34 (Compiler Design). Don't write material for them unless asked.
 - Write in **simple, clear English**: short sentences, no unnecessary jargon. Define a term the first time you use it.
